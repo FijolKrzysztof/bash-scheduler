@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source /home/krzysztoffijol/programs/bash-scheduler/scheduler.data.sh
+source /home/krzysztoffijol/Apps/bash-scheduler/scheduler.data.sh
 read -r -p "OPEN( HABITS | BTC | CHART )? [h b c] : " habits btc chart
 if [ $habits ] && [ $habits == "h" ]; then
 	command $openWebsite $calendarURL
@@ -17,7 +17,7 @@ for((;;)); do
 		read -p "NEW TIME [HH:MM] : " newTime
 		read -p "CONFIRM? [y/n] : " confirm
 		if [ $confirm == "y" ]; then
-			sed -i "s/displayTime=[0-9]*:[0-9]*/displayTime=$newTime/" /home/krzysztoffijol/programs/bash-scheduler/scheduler.data.sh
+			sed -i "s/displayTime=[0-9]*:[0-9]*/displayTime=$newTime/" /home/krzysztoffijol/Apps/bash-scheduler/scheduler.data.sh
 			break
 		fi
 	else
