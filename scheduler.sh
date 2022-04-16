@@ -4,7 +4,7 @@ opened1=false
 
 for((;;))
 do
-	source /home/ja/programs/bash-scheduler/scheduler.data.sh
+	source /home/krzysztoffijol/programs/bash-scheduler/scheduler.data.sh
 	currentTime=$(date +%H:%M)
 	if [ $opened1 == false ]; then
 		command $openWebsite $btcURL
@@ -12,7 +12,7 @@ do
 		opened1=true
 	fi
 	if [ $currentTime == $displayTime ]; then
-		command gnome-terminal -- /home/ja/programs/bash-scheduler/scheduler.exec.sh
+		command gnome-terminal -- /home/krzysztoffijol/programs/bash-scheduler/scheduler.exec.sh
 	fi
 	sleep 60
 done
