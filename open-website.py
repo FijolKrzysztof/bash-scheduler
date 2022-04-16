@@ -1,4 +1,4 @@
-#!/home/ja/anaconda3/envs/python/bin/python
+#!/usr/bin/python3.8
 
 import webbrowser
 import socket
