@@ -13,10 +13,10 @@ if [ $chart ] && [ $chart == "c" ]; then
 fi
 for((;;)); do
 	read -p "CHANGE TIME? [y/n] : " changeTime
-	if [ $changeTime == "y" ]; then
+	if [ $changeTime ] && [ $changeTime == "y" ]; then
 		read -p "NEW TIME [HH:MM] : " newTime
 		read -p "CONFIRM? [y/n] : " confirm
-		if [ $confirm == "y" ]; then
+		if [ $confirm ] && [ $confirm == "y" ]; then
 			sed -i "s/displayTime=[0-9]*:[0-9]*/displayTime=$newTime/" /home/krzysztoffijol/Apps/bash-scheduler/scheduler.data.sh
 			break
 		fi
@@ -24,3 +24,11 @@ for((;;)); do
 		break
 	fi
 done
+read -p "OPEN PROBLEM SOLVER? [y/n] : " problemSolver
+if [ $problemSolver ] && [ $problemSolver == "y" ]; then
+	source ./problem-solver.sh
+fi
+read -p "REOPEN [y/n] : " reopen
+if [ $reopen ] && [ $reopen == "y" ]; then
+	source ./scheduler.exec.sh
+fi

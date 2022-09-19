@@ -1,6 +1,6 @@
 #!/bin/bash
 
-displayTime=22:00
+displayTime=00:00
 
 openBetting="node /home/krzysztoffijol/Apps/betting/server/index.js"
 openWebsite="/home/krzysztoffijol/Apps/bash-scheduler/open-website.py"
