@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source /home/krzysztof/Apps/bash-scheduler/scheduler-data.sh
+source /home/krzysztof/Projects/bash-scheduler/scheduler-data.sh
 read -r -p "OPEN( HABITS | BTC | CHART )? [h b c] : " habits btc chart
 if [ $habits ] && [ $habits == "h" ]; then
 	command $openWebsite $calendarURL > /dev/null 2>&1 &
@@ -13,5 +13,5 @@ if [ $chart ] && [ $chart == "c" ]; then
 fi
 read -p "REOPEN [y/n] : " reopen
 if [ $reopen ] && [ $reopen == "y" ]; then
-	source /home/krzysztof/Apps/bash-scheduler/scheduler-exec.sh
+	source /home/krzysztof/Projects/bash-scheduler/scheduler-exec.sh
 fi

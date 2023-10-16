@@ -2,7 +2,7 @@
 
 displayTime=00:00
 
-openWebsite="/home/krzysztof/Apps/bash-scheduler/open-website.py"
+openWebsite="/home/krzysztof/Projects/bash-scheduler/open-website.py"
 
 calendarURL="https://docs.google.com/spreadsheets/d/10pRjMtX-4UpwNRVFNly9oePMwvPmVR6XLS-42uEe5pU/edit#gid=888205070"
 btcURL="https://www.google.com/search?q=btc%2Fusd"
