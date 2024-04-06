@@ -1,13 +1,15 @@
 #!/bin/bash
 
+SCRIPT_FOLDER="$(dirname "$(readlink -f "$0")")"
+
 opened1=false
 
-for((;;))
+while :
 do
-	source /home/krzysztof/Projects/bash-scheduler/scheduler-data.sh
+	source "$SCRIPT_FOLDER/scheduler-data.sh"
 	currentTime=$(date +%H:%M)
-	if [ $currentTime == $displayTime ]; then
-		command gnome-terminal -- /home/krzysztof/Projects/bash-scheduler/scheduler-exec.sh
+	if [ "$currentTime" == "$displayTime" ]; then
+		command gnome-terminal -- "$SCRIPT_FOLDER/scheduler-exec.sh"
 	fi
 	sleep 60
 done
