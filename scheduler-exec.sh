@@ -1,23 +1,30 @@
 #!/bin/bash
 
 scheduler_data="$(dirname "$(readlink -f "$0")")/scheduler-data.sh"
-
 openWebsite="$(dirname "$(readlink -f "$0")")/open-website.py"
 
 source "$scheduler_data"
 
-read -r -p "OPEN( HABITS | BTC | CHART )? [h b c] : " habits btc chart
-if [ "$habits" ] && [ "$habits" == "h" ]; then
-    command "$openWebsite" "$calendarURL" > /dev/null 2>&1 &
-fi
-if [ "$btc" ] && [ "$btc" == "b" ]; then
-    command "$openWebsite" "$btcURL" > /dev/null 2>&1 &
-fi
-if [ "$chart" ] && [ "$chart" == "c" ]; then
-    command "$openWebsite" "$chartURL" > /dev/null 2>&1 &
+for i in "${!urls[@]}"; do
+   echo "$((i+1))) ${urls[$i]}"
+done
+echo "Press enter to open all URLs"
+echo
+
+read -r -p "Choose number: " choice
+
+if [[ -z $choice ]]; then
+   for url in "${urls[@]}"; do
+       command "$openWebsite" "$url" > /dev/null 2>&1 &
+   done
+else
+   if [[ $choice =~ ^[0-9]+$ ]] && [ "$choice" -le "${#urls[@]}" ] && [ "$choice" -gt 0 ]; then
+       index=$((choice - 1))
+       command "$openWebsite" "${urls[$index]}" > /dev/null 2>&1 &
+   fi
 fi
 
 read -p "REOPEN [y/n] : " reopen
 if [ "$reopen" ] && [ "$reopen" == "y" ]; then
-    source "$scheduler_data"
+   source "$scheduler_data"
 fi

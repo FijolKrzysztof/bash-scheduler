@@ -2,8 +2,6 @@
 
 SCRIPT_FOLDER="$(dirname "$(readlink -f "$0")")"
 
-opened1=false
-
 while :
 do
 	source "$SCRIPT_FOLDER/scheduler-data.sh"
